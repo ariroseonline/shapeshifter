@@ -18,7 +18,7 @@ console.log('blah')
 var imageQueue = [];
 
   
-var socket = io.connect('http://localhost:8080');
+var socket = io.connect();
 
 socket.on('images', function(imageArr) {
 	console.log(imageArr);
