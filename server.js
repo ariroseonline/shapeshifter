@@ -3,7 +3,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var express = require('express');
 var app = express();
-var server = require('http').Server(app);
+var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var lodash = require('lodash');
 
