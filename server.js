@@ -11,13 +11,13 @@ server.listen(port);
 
 app.use(express.static('public'));
 
-app.get('/*', function(req, res) {
+app.get('/', function(req, res) {
 	console.log('BVHJALDFH')
 	res.sendFile(__dirname + '/public/index.html');
 
 	io.on('connection', function(socket) {
 		makeRequest();
-		setInterval(makeRequest, 5000); //simulation
+		// setInterval(makeRequest, 5000); //simulation
 
 
 		function makeRequest() {
