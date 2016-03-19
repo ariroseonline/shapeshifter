@@ -1,0 +1,27 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.grid-sizer {
+	width: 10%;
+}
+
+
+.grid-item--width1 {
+		width: 10%;			
+}
+
+.grid-item--width2 {
+	width: 20%;
+}
+
+.grid-item--width3 {
+	width: 30%;
+}
+
+img {
+	width: 100%;
+}
+
+
