@@ -24,7 +24,7 @@ app.get('/*', function(req, res) {
 			if (timesRun === 15) {
 				clearInterval(interval);
 			}
-			//do whatever here..
+			makeRequest();
 		}, 300);
 
 		function makeRequest() {
