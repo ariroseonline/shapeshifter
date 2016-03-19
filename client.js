@@ -14,7 +14,6 @@ $('.grid').masonry({
 	columnWidth: '.grid-sizer'
 
 });
-console.log('blah')
 var imageQueue = [];
 
   

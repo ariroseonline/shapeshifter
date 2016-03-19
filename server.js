@@ -3,7 +3,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var express = require('express');
 var app = express();
-var server = require('http').createServer(app);
+var server = require('http').Server(app);
 var io = require('socket.io').listen(server);
 
 var port = process.env.PORT || 8081;
@@ -11,9 +11,8 @@ server.listen(port);
 
 app.use(express.static('public'));
 
-app.get('/', function(req, res) {
-
-
+app.get('/*', function(req, res) {
+	console.log('BVHJALDFH')
 	res.sendFile(__dirname + '/public/index.html');
 
 	io.on('connection', function(socket) {
@@ -22,6 +21,7 @@ app.get('/', function(req, res) {
 
 
 		function makeRequest() {
+			console.log('makerequest')
 			//All the web scraping magic will happen here
 			url = 'http://wwd.com/fashion-news/fashion-features/gallery/los-angeles-fashion-week-fall-2016-naven-10393054/';
 
