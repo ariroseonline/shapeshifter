@@ -49,7 +49,7 @@ app.get('/*', function(req, res) {
 
 						// Let's store the data we filter into a variable so we can easily see what's going on.
 						var imgSrc = $(img).attr('src').split('?')[0];
-						imgSrc += "?w=200";
+						imgSrc += "?w=350";
 						images.push(imgSrc);
 					});
 
