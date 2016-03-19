@@ -66,7 +66,7 @@ app.get('/', function(req, res) {
 
 app.listen(port);
 
-server.listen('8080');
+server.listen(port);
 
 console.log('Magic happens on port 8081');
 
