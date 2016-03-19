@@ -8,8 +8,9 @@ var io = require('socket.io').listen(server);
 var lodash = require('lodash');
 
 app.use(express.static('public'));
+var port = process.env.PORT || 8081;
 
-app.get('/scrape', function(req, res) {
+app.get('/', function(req, res) {
 
 
 	res.sendFile(__dirname + '/public/index.html');
@@ -63,7 +64,7 @@ app.get('/scrape', function(req, res) {
 
 
 
-app.listen('8081');
+app.listen(port);
 
 server.listen('8080');
 
