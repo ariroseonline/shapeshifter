@@ -18,11 +18,18 @@ app.get('/', function(req, res) {
 	io.on('connection', function(socket) {
 		makeRequest();
 		// setInterval(makeRequest, 5000); //simulation
-
+		var timesRun = 0;
+		var interval = setInterval(function() {
+			timesRun += 1;
+			if (timesRun === 15) {
+				clearInterval(interval);
+			}
+			//do whatever here..
+		}, 300);
 
 		function makeRequest() {
 			console.log('makerequest')
-			//All the web scraping magic will happen here
+				//All the web scraping magic will happen here
 			url = 'http://wwd.com/fashion-news/fashion-features/gallery/los-angeles-fashion-week-fall-2016-naven-10393054/';
 
 			request(url, function(error, response, html) {
@@ -47,7 +54,7 @@ app.get('/', function(req, res) {
 					});
 
 					socket.emit('images', images)
-					// fs.writeFile('output.json', JSON.stringify(images, null, 4), function(err) {
+						// fs.writeFile('output.json', JSON.stringify(images, null, 4), function(err) {
 
 					// 	console.log('File successfully written! - Check your project directory for the output.json file');
 
