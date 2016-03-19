@@ -5,10 +5,11 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-var lodash = require('lodash');
+
+var port = process.env.PORT || 8081;
+server.listen(port);
 
 app.use(express.static('public'));
-var port = process.env.PORT || 8081;
 
 app.get('/', function(req, res) {
 
@@ -64,9 +65,7 @@ app.get('/', function(req, res) {
 
 
 
-app.listen(port);
 
-server.listen(port);
 
 console.log('Magic happens on port 8081');
 
