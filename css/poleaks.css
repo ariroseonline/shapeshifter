@@ -1,0 +1,148 @@
+body {
+	background: linear-gradient(90deg, #ff0000, #1c00ff);
+	background-size: 400% 400%;
+	-webkit-animation: Flow 8s ease infinite;
+	-moz-animation: Flow 8s ease infinite;
+	-o-animation: Flow 8s ease infinite;
+	animation: Flow 8s ease infinite;
+}
+
+h1 {
+
+    text-align: center;
+    color: white;
+    text-transform: uppercase;
+    margin-top: 10px;
+    font-size: 70px;
+  	line-height: 120px;
+}
+
+
+@media (min-width: 768px) {
+  h1 {
+   font-size: 100px;
+    line-height: 200px;
+  }
+}
+
+
+.leak {
+	margin-bottom: 30px;
+	position: relative;		
+}
+
+.leak-meta-content {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+
+
+.leak-overlay-content {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 50px;
+  overflow: hidden;
+}
+
+
+.leak-overlay-content:hover {
+	color: #2200F8;
+	cursor: none;
+}
+
+.cursor {
+	display: none;
+  position  : absolute;
+  z-index   : 10000;
+  width     : 40px;
+  height    : 40px;
+  background: transparent url(siren.gif) 0 0 no-repeat;
+  background-size: 40px;
+}
+
+.leak-overlay-content:hover .cursor {
+	display: block;
+}
+
+.leak-overlay-content:hover .triangle-right {
+	border-left-color: #2200F8;
+}
+
+.leak-title {
+	font-weight: bold;
+	font-size: 20px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .leak-title {
+  	font-size: 30px;
+  }
+}
+
+.leak img {	
+		position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+.triangle-right {
+	z-index: 1;
+	width: 0;
+	height: 0;
+	border-top: 50px solid transparent;
+	border-left: 100px solid white;
+	border-bottom: 50px solid transparent;
+}
+
+
+
+@-webkit-keyframes Flow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes Flow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-o-keyframes Flow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes Flow {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+.player-wrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.player-wrapper iframe {
+	border: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
