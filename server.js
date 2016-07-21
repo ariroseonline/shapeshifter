@@ -12,7 +12,6 @@ server.listen(port);
 app.use(express.static('public'));
 
 app.get('/*', function(req, res) {
-	console.log('BVHJALDFH')
 	res.sendFile(__dirname + '/public/index.html');
 
 	io.on('connection', function(socket) {
