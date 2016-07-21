@@ -6,6 +6,16 @@ var imagesLoaded = require('imagesloaded');
 imagesLoaded.makeJQueryPlugin( $ );
 jQueryBridget( 'masonry', Masonry, $ );
 
+  
+
+      // setInterval(function() {
+      //   var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      //   var newScroll = currentScroll + $(window).height();
+      //   $('html, body').stop().animate({
+      //       scrollTop: newScroll
+      //    }, 1750, 'linear')
+      // }, 1750)
+
 // element argument can be a selector string
 //   for an individual element
 $('.grid').masonry({
@@ -21,7 +31,6 @@ var imageQueue = [];
 var socket = io.connect();
 
 socket.on('images', function(imageArr) {
-	console.log(imageArr);
 	addImagesToQueue(imageArr);
 
 });
@@ -41,19 +50,26 @@ function renderImage() {
 		var $newGridItem = $('<div class="grid-item grid-item--width' + randomRange(1,3) + '">');
 		$newGridItem.append($newImage);
 		$newGridItem.hide();
-		console.log($newGridItem);
 
 		$('.grid').append($newGridItem);
 		$newGridItem.hide();
 
 
 		$newGridItem.imagesLoaded().progress(function(imgLoad, image ){
-			console.log('DONnE')
 			
-			 var $item = $( image.img ).parents('.grid-item');
-			 $item.show();
+			var $item = $( image.img ).parents('.grid-item');
+			$item.show();
 			$('.grid').masonry('appended', $item);
 
+
+        var currentScroll =$item.offset().top;
+
+        var newScroll = currentScroll + 350;
+        console.log(newScroll)
+        $('html, body').stop().animate({
+            scrollTop: newScroll
+         }, 1500, 'linear')
+      
 		});
 	}
 
