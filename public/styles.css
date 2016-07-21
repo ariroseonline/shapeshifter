@@ -24,6 +24,10 @@ img {
 	width: 100%;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .feed-toggle-btn {
 	position: fixed;
 	top: 0;
