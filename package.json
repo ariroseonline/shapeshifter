@@ -1,0 +1,25 @@
+{
+  "name": "shapeshifter",
+  "version": "0.0.1",
+  "description": "Inspiration in real-time.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ariroseonline/shapeshifter.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "express": "^4.13.4",
+    "imagesloaded": "^4.1.0",
+    "jquery-bridget": "^2.0.0",
+    "lodash": "^4.6.1",
+    "masonry-layout": "^4.0.0",
+    "request": "^2.69.0",
+    "socket.io": "^1.4.5"
+  }
+}
