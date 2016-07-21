@@ -8,14 +8,6 @@ jQueryBridget( 'masonry', Masonry, $ );
 
   
 
-      // setInterval(function() {
-      //   var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      //   var newScroll = currentScroll + $(window).height();
-      //   $('html, body').stop().animate({
-      //       scrollTop: newScroll
-      //    }, 1750, 'linear')
-      // }, 1750)
-
 // element argument can be a selector string
 //   for an individual element
 $('.grid').masonry({
@@ -36,7 +28,21 @@ socket.on('images', function(imageArr) {
 });
 
 socket.emit('images', "blah from client itself");
-setInterval(renderImage, 200);
+var renderingCycle = setInterval(renderImage, 200);
+var isRenderingCycleActive = true; 
+
+$('.feed-toggle-btn').on('click', function() {
+  if(isRenderingCycleActive) {
+    clearInterval(renderingCycle);
+    isRenderingCycleActive = false;
+    $(this).text('Resume Feed');
+  } else {
+    renderingCycle = setInterval(renderImage, 200);
+    isRenderingCycleActive = true;
+    $(this).text('Pause Feed')
+
+  }
+});
 
 
 function addImagesToQueue(imageArr) {
@@ -61,14 +67,12 @@ function renderImage() {
 			$item.show();
 			$('.grid').masonry('appended', $item);
 
-
+      //scroll page with new items being inserted
         var currentScroll =$item.offset().top;
-
         var newScroll = currentScroll + 350;
-        console.log(newScroll)
         $('html, body').stop().animate({
             scrollTop: newScroll
-         }, 1500, 'linear')
+         }, 2500, 'linear')
       
 		});
 	}
@@ -78,9 +82,6 @@ function renderImage() {
 function randomRange(min, max) {
   return ~~(Math.random() * (max - min + 1)) + min
 }
-
-
-
 
 
 },{"imagesloaded":2,"jquery":5,"jquery-bridget":4,"masonry-layout":6}],2:[function(require,module,exports){
